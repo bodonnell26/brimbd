@@ -8,9 +8,8 @@ function App() {
   function searchMovie() {
     console.log("searching!")
   }
-  function handleSubmit(e) {
+  function handleSubmit(formData) {
     event.preventDefault()
-    const formData = new FormData(event.currentTarget)
     const titleSearch = formData.get("title")
     console.log(titleSearch);
   }
@@ -21,7 +20,7 @@ function App() {
       <section className='addMovie'>
         <div className="container">
           <h2>Add a new movie</h2>
-          <form onSubmit={handleSubmit}>
+          <form action={handleSubmit}>
             Title: <input type="text" name="title"></input>
             <button onClick={searchMovie}>Add Movie</button>
           </form>
